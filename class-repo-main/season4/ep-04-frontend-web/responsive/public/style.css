@@ -1,0 +1,202 @@
+:root {
+    --white: #fff;
+    --blue: #02afc5;
+    --black: #0d0d0d;
+    --rick-morty-font: 'Rick and Morty';
+    --adult-swim-font: 'Adult Swim';
+    --shadow: 3px 3px 3px var(--black);
+}
+
+@font-face {
+    font-family: 'Rick and Morty';
+    src: url('assets/fonts/rick_and_morty.ttf');
+}
+
+@font-face {
+    font-family: 'Adult Swim';
+    src: url('assets/fonts/adult_swim.ttf');
+}
+
+body,
+p,
+a,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+body {
+    background: var(--white);
+    font-family: var(--adult-swim-font);
+    min-width: 400px;
+}
+
+a {
+    color: var(--black);
+}
+
+#container {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.banner {
+    width: 100%;
+    max-height: 40vh;
+    background-image: url('assets/portal.png');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 5px solid var(--blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner img {
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    border: 5px solid var(--blue);
+    margin-top: 3vh;
+}
+
+.title {
+    width: 100%;
+    font-size: 5rem;
+    text-align: center;
+    color: var(--white);
+    text-shadow: var(--shadow);
+    margin: 1.5vh;
+}
+
+#title {
+    font-family: var(--rick-morty-font);
+    font-size: 8rem;
+    margin: 5vh;
+}
+
+.characters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.characters li {
+    text-align: center;
+    background: var(--blue);
+    min-width: 60vw;
+    margin: 3vh;
+    background-image: var(--blue);
+}
+
+.characters a {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    box-shadow: var(--shadow);
+}
+
+.characters img {
+    width: 100%;
+}
+
+.characters h3 {
+    width: 100%;
+    margin: 0;
+    padding: 15px 0;
+    text-align: center;
+    color: var(--white);
+    font-family: var(--rick-morty-font);
+    font-size: 2em;
+    font-weight: normal;
+    text-transform: uppercase;
+    text-shadow: var(--shadow);
+}
+
+.details {
+    text-align: center;
+    font-size: 2.5rem;
+    background: var(--blue);
+    color: var(--white);
+    text-shadow: var(--shadow);
+    min-height: 100vh;
+}
+
+.details p {
+    padding: 1.5vh;
+}
+
+button {
+    display: inline-block;
+    font-family: var(--adult-swim-font);
+    font-size: 2rem;
+    padding: 1.5vh;
+    margin: 2vh;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.btn-dark {
+    background: var(--black);
+    color: var(--white);
+}
+
+.btn-dark:hover {
+    color: var(--black);
+    background: var(--white);
+}
+
+
+@media only screen and (min-width: 700px) {
+
+    .banner {
+        background-image: url('assets/sunset.png');
+        min-height: 40vh;
+        position: relative;
+    }
+
+    .banner img {
+        width: 30vh;
+        height: 30vh;
+        position: absolute;
+        left: 50%;
+        bottom: -15vh;
+        margin-left: -15vh;
+        border-radius: 50%;
+        border: 5px solid var(--blue);
+    }
+
+    .title {
+        font-family: var(--rick-morty-font);
+        font-size: 5rem;
+        margin-top: 5vh;
+    }
+
+    .characters {
+        justify-content: center;
+        max-width: 1050px;
+    }
+
+    .characters li {
+        min-width: auto;
+        max-width: 350px;
+        display: inline-block;
+    }
+
+    .details p:first-of-type {
+        padding-top: 15vh;
+    }
+}

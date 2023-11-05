@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animation</title>
+    <style>
+        #container {
+            width: 400px;
+            height: 50px;
+            background-color: grey;
+
+            /* Position absolute relative to parent container */
+            position: absolute;
+        }
+
+        #box {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+
+            /* Position absolute relative to parent container */
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="box"></div>
+    </div>
+
+    <script>
+
+        var box = document.getElementById('box');
+
+        var t1 = Date.now();
+        function moveSetTimeoutScheduleAll() {
+            console.log('animation finished in ' + (Date.now() - t1) + 'ms');
+        };
+
+/*
+        // all this code runs without the browser having a chance to re-paint screen
+        function moveSync(cb) {
+
+            var pos = 0;
+            while (pos <= 350) {
+                pos++;
+                box.style.left = pos + 'px';
+            }
+
+            cb();
+        }
+
+
+        moveSetInterval(moveSetTimeoutScheduleAll);
+
+        // schedule one move operation at a time with setInterval
+        function moveSetInterval(cb) {
+
+            var pos = 0;
+            var id = setInterval(move, 0);
+
+            function move() {
+
+                pos++;
+
+                if (pos > 350) {
+                    clearInterval(id);
+                    cb();
+                    return;
+                }
+
+                box.style.left = pos + 'px';
+            }
+        }
+
+        // schedule one move operation at a time with setTimeout
+        function moveSetTimeoutScheduleOne(cb) {
+
+            var pos = 0;
+            setTimeout(move, 0);
+
+            function move() {
+
+                if (pos > 350) {
+                    cb();
+                    return;
+                }
+
+                box.style.left = pos + 'px';
+                pos++;
+                setTimeout(move, 0);
+            }
+        }
+*/
+
+        // schedule all move operations in one go, faster to run
+        function moveSetTimeoutScheduleAll(cb) {
+
+            for (var pos = 0; pos < 351; pos++) {
+                // closure required to preserve value of i
+                (function(i) {
+                    setTimeout(function() {
+                        box.style.left = i + 'px';
+                    }, pos);
+                })(pos);
+            }
+
+            setTimeout(cb, pos + 1);
+        }
+
+/*
+        // schedule all move operations to fit in the browser
+        // paint budget for a fluid animation
+        function moveScheduledPaint(cb) {
+                for (var pos = 0; pos < 351; pos++) {
+                    (function(pos) {
+                        setTimeout(function() {
+                            box.style.left = pos + 'px';
+                        }, pos * 16);
+                    })(pos);
+                }
+
+                setTimeout(cb, pos * 16 + 1);
+            }
+*/
+    </script>
+</body>
+
+</html>

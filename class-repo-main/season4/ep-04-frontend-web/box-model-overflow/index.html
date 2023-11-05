@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Border Box Representation</title>
+
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 18px;
+            }
+
+            section {
+                margin-bottom: 100px;
+            }
+
+            h2 {
+                font-size: 12px;
+            }
+
+            .box {
+                text-align: center;
+                display: inline-block;
+                margin: 20px;
+            }
+
+            .legend {
+                vertical-align: bottom;
+            }
+
+            .legend ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+
+            .legend li {
+                display: inline-block;
+                padding: 5px;
+            }
+
+            .content {
+                background-color: white;
+            }
+
+            .padding {
+                background-color: green;
+            }
+
+            .padding.box {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            .margin {
+                background-color: sandybrown;
+            }
+
+            .border {
+                border: 4px solid black;
+            }
+
+            .overflowing.box {
+                width: 100px;
+                height: 20px;
+                overflow: visible;
+            }
+
+            .overflowing.scroll {
+                overflow: scroll;
+            }
+
+            .overflowing.hidden {
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+
+        <section id="css-box-model-overflow">
+            <h1>CSS Box Model (with overflowing content)</h1>
+
+            <div class="box">
+                <h2>
+                    <code>overflow: visible;</code>
+                    <br />
+                    <small>(default)</small>
+                </h2>
+
+                <div class="margin box">
+                    <div class="padding border box">
+                        <div class="overflowing content box">
+                            this is content that overflows
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <h2>
+                    <code>overflow: hidden;</code>
+                </h2>
+
+                <div class="margin box">
+                    <div class="padding border box">
+                        <div class="overflowing hidden content box">
+                            this is content that overflows
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <h2>
+                    <code>overflow: scroll;</code>
+                </h2>
+
+                <div class="margin box">
+                    <div class="padding border box">
+                        <div class="overflowing scroll content box">
+                            this is content that overflows
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="legend box">
+                <ul>
+                    <li class="padding">padding</li>
+                    <li class="margin">margin</li>
+                    <li class="border">border</li>
+                </ul>
+            </div>
+        </section>
+    </body>
+</html>

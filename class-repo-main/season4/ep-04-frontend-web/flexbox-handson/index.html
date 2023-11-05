@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Flexbox Examples</title>
+
+        <style>
+            .flex.container {
+                display: flex;
+                outline: 1px solid red;
+            }
+
+            .flex.container.centered {
+                justify-content: center;
+            }
+
+            .flex.container.spaced-between {
+                justify-content: space-between;
+            }
+
+            .flex.container.space-around {
+                justify-content: space-around;
+            }
+
+            .flex.container.flex-start {
+                justify-content: flex-start;
+            }
+
+            .flex.container.flex-end {
+                justify-content: flex-end;
+            }
+
+            .flex.container.align-center {
+                align-items: center;
+            }
+
+            .flex.container.align-end {
+                align-items: flex-end;
+            }
+
+            .flex.container.align-stretch {
+                align-items: stretch;
+            }
+
+            .flex.item {
+                flex: 1;
+                outline: 1px solid black;
+            }
+
+            .flex.item.important {
+                flex: 2;
+                background-color: rosybrown;
+            }
+
+            .flex.item.small {
+                flex: 0.2;
+            }
+
+            .flex.item.medium {
+                flex: 0.4;
+            }
+
+            .flex.columns {
+                flex-direction: column;
+            }
+
+            .box {
+                height: 200px;
+            }
+
+            .padded {
+                padding: 20px;
+            }
+
+            .yellow {
+                background-color: yellow;
+            }
+
+            .blue {
+                background-color: rgba(0, 0, 255, 0.4);
+            }
+        </style>
+    </head>
+    <body>
+        <h1><code>flex-direction: row;</code></h1>
+        <div class="flex container">
+            <div class="blue flex item">flex: 1</div>
+            <div class="important flex item">flex: 2</div>
+            <div class="blue flex item">flex: 1</div>
+        </div>
+
+        <h1><code>flex-direction: column;</code></h1>
+        <div class="flex container columns">
+            <div class="blue flex item">flex: 1</div>
+            <div class="important flex item">flex: 2</div>
+            <div class="blue flex item">flex: 1</div>
+        </div>
+
+        <hr />
+        <h1><code>justify-content: flex-start;</code></h1>
+        <div class="flex container flex-start">
+            <div class="blue flex item small">flex: 0.2</div>
+            <div class="blue flex item medium">flex: 0.4</div>
+        </div>
+
+        <h1><code>justify-content: flex-end;</code></h1>
+        <div class="flex container flex-end">
+            <div class="blue flex item small">flex: 0.2</div>
+            <div class="blue flex item medium">flex: 0.4</div>
+        </div>
+
+        <h1><code>justify-content: center;</code></h1>
+        <div class="flex container centered">
+            <div class="blue flex item small">flex: 0.2</div>
+            <div class="blue flex item medium">flex: 0.4</div>
+        </div>
+
+        <h1><code>justify-content: space-between;</code></h1>
+        <div class="flex container spaced-between">
+            <div class="blue flex item small">flex: 0.2</div>
+            <div class="blue flex item medium">flex: 0.4</div>
+        </div>
+
+        <h1><code>justify-content: space-around;</code></h1>
+        <div class="flex container space-around">
+            <div class="blue flex item small">flex: 0.2</div>
+            <div class="blue flex item medium">flex: 0.4</div>
+        </div>
+
+        <hr />
+        <h1><code>align-items: center;</code></h1>
+        <div class="flex box container align-center">
+            <div class="blue flex item small">flex: 0.2</div>
+            <div class="blue flex item medium">flex: 0.4</div>
+        </div>
+
+        <h1><code>align-items: stretch;</code></h1>
+        <div class="flex box container align-stretch">
+            <div class="blue flex item small">flex: 0.2</div>
+            <div class="blue flex item medium">flex: 0.4</div>
+        </div>
+
+        <h1><code>align-items: flex-end;</code></h1>
+        <div class="flex box container align-end">
+            <div class="blue flex item small">flex: 0.2</div>
+            <div class="blue flex item medium">flex: 0.4</div>
+        </div>
+
+        <br />
+        <h1>
+            <code>flex-direction: column; justify-content: space-between;</code>
+        </h1>
+        <div class="flex box container columns spaced-between">
+            <div class="blue flex item small">flex: 0.2</div>
+            <div class="blue flex item medium">flex: 0.4</div>
+        </div>
+    </body>
+</html>
